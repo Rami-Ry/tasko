@@ -3,9 +3,11 @@
 namespace App\Tasko\Repositories;
 
 use App\Tasko\Models\Todo;
+use App\Tasko\Helpers\DbHelper;
 
-class TodosRepository
+class TodoRepository
 {
+
   /**
    * Fetch all the todos from the database.
    * 
@@ -13,9 +15,13 @@ class TodosRepository
    */
   public static function getAll(): array
   {
-    // Logic to be added here.
+    $filesPaths = dbHelper::getDbFilesPaths("todos");
 
-    return [];
+    $filesObjs = dbHelper::readJsonFiles($filesPaths);
+
+    $tasks = Todo::ConvertToClassObject($filesObjs);
+
+    return $tasks;
   }
 
   /**
@@ -23,12 +29,12 @@ class TodosRepository
    * 
    * @return \App\Tasko\Models\Todo 
    */
-  public static function getById(string $id): Todo
-  {
-    // Logic to be added here.
+  // public static function getById(string $id): Todo
+  // {
+  //   // Logic to be added here.
 
-    return new Todo();
-  }
+  //   return new Todo();
+  // }
 
   /**
    * Creates a new todo
@@ -37,12 +43,12 @@ class TodosRepository
    * 
    * @return \App\Tasko\Models\Todo
    */
-  public static function create(array $data): Todo
-  {
-    // Logic to be added here.
+  // public static function create(array $data): Todo
+  // {
+  //   // Logic to be added here.
 
-    return new Todo();
-  }
+  //   return new Todo();
+  // }
 
   /**
    * Update a specific todo in the database.
@@ -52,12 +58,12 @@ class TodosRepository
    * 
    * @return \App\Tasko\Models\Todo
    */
-  public static function update(string $id, array $data): Todo
-  {
-    // Login to be added here.
+  // public static function update(string $id, array $data): Todo
+  // {
+  //   // Login to be added here.
 
-    return new Todo();
-  }
+  //   return new Todo();
+  // }
 
   /**
    * Deletes a specific todo in the database.
