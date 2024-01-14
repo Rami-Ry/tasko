@@ -4,5 +4,5 @@ use App\Tasko\Repositories\TodoRepository;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$todoId = TodoRepository::getTodoById("35jhgoa-r");
+$todoId = TodoRepository::getTaskById("4g-hh-52730");
 print_r($todoId);

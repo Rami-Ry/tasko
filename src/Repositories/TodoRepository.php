@@ -3,6 +3,7 @@
 namespace App\Tasko\Repositories;
 
 use App\Tasko\Models\Todo;
+use App\Tasko\Models\Task;
 use App\Tasko\Helpers\DbHelper;
 
 class TodoRepository
@@ -33,12 +34,46 @@ class TodoRepository
    */
   public static function getTodoById(string $id): Todo|null
   {
-    // Logic to be added here.
+    // Get the todos
     $todos = self::getAll();
+
+    // Loop through all the todos.
     for ($i = 0; $i < count($todos); $i++) {
       $todo = $todos[$i];
       if ($todo->id == $id) {
         return $todo;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Fetch a specific todo by its id.
+   * 
+   * @param $id the id that we will the its todo.
+   * 
+   * @return \App\Tasko\Models\Todo 
+   */
+  public static function getTaskById(string $id): Task|null
+  {
+    // Get the todos
+    $todos = self::getAll();
+
+    // Loop through all the todos.
+    for ($i = 0; $i < count($todos); $i++) {
+      $todo = $todos[$i];
+
+      /**
+       * @var array<Task>
+       */
+      $tasks = [];
+
+      // Loop through all the tasks of the current todo.
+      for ($j = 0; $j < count($todo->tasks); $j++) {
+        $task = $todo->tasks[$j];
+        if ($task->id == $id) {
+          return $task;
+        }
       }
     }
     return null;
