@@ -2,6 +2,7 @@
 
 namespace App\Tasko\Models;
 
+use Ramsey\Uuid\Uuid;
 use App\Tasko\Models\Task;
 
 /**
@@ -32,7 +33,8 @@ class Todo
     array $tasks = [],
   ) {
     if ($id == null) {
-      $this->id = "some-id";
+      $this->id = Uuid::uuid4();
+      echo ($id);
     } else {
       $this->id = $id;
     }

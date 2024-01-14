@@ -2,6 +2,8 @@
 
 namespace App\Tasko\Models;
 
+use Ramsey\Uuid\Uuid;
+
 /**
  * Task class.
  * 
@@ -36,7 +38,7 @@ class Task
     string $deadline,
   ) {
     if ($id == null) {
-      $this->id = "some-id";
+      $this->id = Uuid::uuid4();
     } else {
       $this->id = $id;
     }
