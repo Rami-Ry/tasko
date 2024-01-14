@@ -19,22 +19,30 @@ class TodoRepository
 
     $filesObjs = dbHelper::readJsonFiles($filesPaths);
 
-    $tasks = Todo::ConvertToClassObject($filesObjs);
+    $todos = Todo::ConvertToClassObject($filesObjs);
 
-    return $tasks;
+    return $todos;
   }
 
   /**
    * Fetch a specific todo by its id.
    * 
+   * @param $id the id that we will the its todo.
+   * 
    * @return \App\Tasko\Models\Todo 
    */
-  // public static function getById(string $id): Todo
-  // {
-  //   // Logic to be added here.
-
-  //   return new Todo();
-  // }
+  public static function getTodoById(string $id): Todo|null
+  {
+    // Logic to be added here.
+    $todos = self::getAll();
+    for ($i = 0; $i < count($todos); $i++) {
+      $todo = $todos[$i];
+      if ($todo->id == $id) {
+        return $todo;
+      }
+    }
+    return null;
+  }
 
   /**
    * Creates a new todo
