@@ -17,15 +17,10 @@ use App\Tasko\Models\Task;
 class Todo
 {
   public string $id;
-
   public string $createdAt;
-
   public string $updatedAt;
-
   public string $name;
-
   public string $description;
-
   public array $tasks;
 
   public function __construct(
