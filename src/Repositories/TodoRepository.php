@@ -82,16 +82,35 @@ class TodoRepository
   /**
    * Creates a new todo
    * 
-   * @param array $data The attributes and values of the todo.
+   * @param string $name
+   * @param string $description
+   * @param array<Task> $tasks   
    * 
    * @return \App\Tasko\Models\Todo
    */
-  // public static function create(array $data): Todo
-  // {
-  //   // Logic to be added here.
+  public static function createTodo(
+    string $name,
+    string $description,
+    array $tasks
+  ): Todo {
+    // Create a new todo object.
+    $todo = new Todo(null, $name, $description, null, null);
 
-  //   return new Todo();
-  // }
+    // Construct the full path of the file with its name and extension.
+    $todoFullPath = ("C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\") . $todo->id . ".json";
+    $todoFile = fopen($todoFullPath, 'a');
+
+    // Convert the todo object to a string its format JSON.
+    $todoJson = json_encode($todo);
+
+    // fill the file with the todo.
+    fwrite($todoFile, $todoJson);
+
+    // Close the file.
+    fclose($todoFile);
+
+    return $todo;
+  }
 
   /**
    * Update a specific todo in the database.

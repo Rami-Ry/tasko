@@ -15,8 +15,7 @@ class DbHelper
   {
     $filePath = getcwd();
 
-    // Directory path
-    $directory = $filePath . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . $entityFolderName;
+    $directory = $filePath . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . $entityFolderName;
 
     return $directory;
   }
