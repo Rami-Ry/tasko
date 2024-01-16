@@ -64,7 +64,7 @@ class TodoRepository
     $todo = new Todo($name, $description);
 
     // Construct the full path of the file with its name and extension.
-    $todoFullPath = ("C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\") . $todo->id . ".json";
+    $todoFullPath = "C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\" . $todo->id . ".json";
     $todoFile = fopen($todoFullPath, 'a');
 
     // Convert the todo object to a string its format JSON.
@@ -77,38 +77,6 @@ class TodoRepository
     fclose($todoFile);
 
     return $todo;
-  }
-
-  /**
-   * Fetch a specific todo by its id.
-   * 
-   * @param $id the id that we will the its todo.
-   * 
-   * @return \App\Tasko\Models\Todo 
-   */
-  public static function getTaskById(string $id): Task|null
-  {
-    // Get the todos.
-    $todos = self::getAll();
-
-    // Loop through all the todos.
-    for ($i = 0; $i < count($todos); $i++) {
-      $todo = $todos[$i];
-
-      /**
-       * @var array<Task>
-       */
-      $tasks = [];
-
-      // Loop through all the tasks of the current todo.
-      for ($j = 0; $j < count($todo->tasks); $j++) {
-        $task = $todo->tasks[$j];
-        if ($task->id == $id) {
-          return $task;
-        }
-      }
-    }
-    return null;
   }
 
   /**
@@ -133,8 +101,11 @@ class TodoRepository
    * 
    * @return bool
    */
-  public static function delete(string $id): bool
+  public static function deleteTodo(string $id): bool
   {
+    $todo = self::getTodoById($id);
+    $todoFullPath = "C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\" . $id . ".json";
+    unlink($todoFullPath);
     return true;
   }
 }

@@ -1,6 +1,9 @@
 <?php
 
+
 namespace App\Tasko\Helpers;
+
+//define("WORKING_DIR", __DIR__ . "/../");
 
 class DbHelper
 {
@@ -13,7 +16,7 @@ class DbHelper
    */
   public static function getDbEntityPath(string $entityFolderName): string
   {
-    $filePath = WORKING_DIR;
+    $filePath = getcwd();
 
     $directory = $filePath . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . $entityFolderName;
 

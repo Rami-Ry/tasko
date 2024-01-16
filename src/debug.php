@@ -6,6 +6,8 @@ use App\Tasko\Repositories\TodoRepository;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$egal = TodoRepository::createTodo("Egal", "Egal desc");
-$egalTask = TaskRepository::createTask($egal, "EgalTask", "EgalDescription", "Egal deadline");
-print_r($egalTask);
+$deleteTodo = TodoRepository::deleteTodo(
+  "45d9c047-3cc9-4c48-9b86-0371621a85bd"
+);
+print_r($deleteTodo);
+
