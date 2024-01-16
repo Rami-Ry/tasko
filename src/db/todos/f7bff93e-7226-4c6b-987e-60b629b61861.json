@@ -4,5 +4,33 @@
   "updatedAt": "2024-01-15 12:51:49 AM",
   "name": "Calculus",
   "description": "Some shit",
-  "tasks": []
+  "tasks": [
+    {
+      "id": "99c4ab64-3444-4ec1-91e3-3490447a92ce",
+      "name": "Wake up",
+      "description": "Just wake up and start grinding",
+      "createdAt": "2024-01-15 03:31:20 PM",
+      "updatedAt": "2024-01-15 03:31:20 PM",
+      "status": "OPEN",
+      "deadline": "2022-12-12"
+    },
+    {
+      "id": "47b9a3fe-ef70-4bf5-b079-1ac5582fd08c",
+      "name": "Wake up",
+      "description": "Just wake up and start grinding",
+      "createdAt": "2024-01-15 03:33:24 PM",
+      "updatedAt": "2024-01-15 03:33:24 PM",
+      "status": "OPEN",
+      "deadline": "2022-12-12"
+    },
+    {
+      "id": "d51e4fe8-00b0-4a49-91b7-d9d01e9f0b83",
+      "name": "Wake up",
+      "description": "Just wake up and start grinding",
+      "createdAt": "2024-01-15 03:45:05 PM",
+      "updatedAt": "2024-01-15 03:45:05 PM",
+      "status": "OPEN",
+      "deadline": "2022-12-12"
+    }
+  ]
 }

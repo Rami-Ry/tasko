@@ -13,9 +13,9 @@ class DbHelper
    */
   public static function getDbEntityPath(string $entityFolderName): string
   {
-    $filePath = getcwd();
+    $filePath = WORKING_DIR;
 
-    $directory = $filePath . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . $entityFolderName;
+    $directory = $filePath . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "db" . DIRECTORY_SEPARATOR . $entityFolderName;
 
     return $directory;
   }

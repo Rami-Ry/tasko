@@ -86,13 +86,13 @@ class Todo
 
         // Create a new task instance from the the current task.
         $tasks[] = new Task(
-          $task->id,
           $task->name,
           $task->description,
+          $task->deadline,
+          $task->id,
           $task->createdAt,
           $task->updatedAt,
           $task->status,
-          $task->deadline
         );
       }
 

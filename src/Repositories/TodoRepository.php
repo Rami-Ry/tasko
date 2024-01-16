@@ -34,7 +34,7 @@ class TodoRepository
    */
   public static function getTodoById(string $id): Todo|null
   {
-    // Get the todos
+    // Get the todos.
     $todos = self::getAll();
 
     // Loop through all the todos.
@@ -48,6 +48,40 @@ class TodoRepository
   }
 
   /**
+   * Creates a new todo.
+   * 
+   * @param string $name.
+   * @param string $description.
+   * @param array<Task> $tasks.   
+   * 
+   * @return \App\Tasko\Models\Todo
+   */
+  public static function createTodo(
+    string $name,
+    string $description,
+    array $tasks
+  ): Todo {
+    // Create a new todo object.
+    $todo = new Todo(null, $name, $description, null, null, $tasks);
+
+    // Construct the full path of the file with its name and extension.
+    $todoFullPath = ("C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\") . $todo->id . ".json";
+    $todoFile = fopen($todoFullPath, 'a');
+
+    // Convert the todo object to a string its format JSON.
+    $todoJson = json_encode($todo);
+
+    // fill the file with the todo.
+    fwrite($todoFile, $todoJson);
+
+    // Close the file.
+    fclose($todoFile);
+
+
+    return $todo;
+  }
+
+  /**
    * Fetch a specific todo by its id.
    * 
    * @param $id the id that we will the its todo.
@@ -56,7 +90,7 @@ class TodoRepository
    */
   public static function getTaskById(string $id): Task|null
   {
-    // Get the todos
+    // Get the todos.
     $todos = self::getAll();
 
     // Loop through all the todos.
@@ -80,28 +114,30 @@ class TodoRepository
   }
 
   /**
-   * Creates a new todo
+   * Creates a new task.
    * 
-   * @param string $name
-   * @param string $description
-   * @param array<Task> $tasks   
+   * @param string $name.
+   * @param string $description.
+   * @param string $status.
+   * @param string $deadline.
    * 
-   * @return \App\Tasko\Models\Todo
+   * @return \App\Tasko\Models\Task
    */
-  public static function createTodo(
+  public static function createTask(
     string $name,
     string $description,
-    array $tasks
-  ): Todo {
-    // Create a new todo object.
-    $todo = new Todo(null, $name, $description, null, null);
-
+    string $status,
+    string $deadline
+  ): Task {
+    // Create a new task object.
+    $task = new Task(null, $name, $description, null, null, $status, $deadline);
+    $todo = TodoRepository::createTodo("Calculus", "Some shit", []);
     // Construct the full path of the file with its name and extension.
     $todoFullPath = ("C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\") . $todo->id . ".json";
     $todoFile = fopen($todoFullPath, 'a');
 
     // Convert the todo object to a string its format JSON.
-    $todoJson = json_encode($todo);
+    $todoJson = json_encode($task);
 
     // fill the file with the todo.
     fwrite($todoFile, $todoJson);
@@ -109,7 +145,7 @@ class TodoRepository
     // Close the file.
     fclose($todoFile);
 
-    return $todo;
+    return $task;
   }
 
   /**

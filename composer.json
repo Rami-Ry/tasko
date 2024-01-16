@@ -10,8 +10,12 @@
     }
   },
   "scripts": {
-    "start": "cd ./public && php -S localhost:8080",
-    "test": "vendor/bin/phpunit ./src/tests/unit --colors --testdox"
+    "start": "php -S localhost:8080 -t public/",
+    "test": "vendor/bin/phpunit ./src/tests/unit --colors --testdox",
+    "debug": "php src/debug.php"
+  },
+  "config": {
+    "process-timeout": 0
   },
   "require-dev": {
     "phpunit/phpunit": "^10"

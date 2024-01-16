@@ -1,5 +1,7 @@
 <?php
 
+define("WORKING_DIR", __DIR__ . "/../");
+
 use App\Tasko\Controllers\TodosController;
 use Slim\Factory\AppFactory;
 

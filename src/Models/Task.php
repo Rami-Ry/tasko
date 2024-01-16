@@ -14,10 +14,7 @@ use Ramsey\Uuid\Uuid;
  * @property string $createdAt
  * @property string $updatedAt
  * @property string $status
-
  */
-
-
 class Task
 {
   public string $id;
@@ -29,13 +26,13 @@ class Task
   public string $deadline;
 
   public function __construct(
-    string|null $id,
     string $name,
     string $description,
-    string|null $createdAt,
-    string|null $updatedAt,
-    string $status,
     string $deadline,
+    string|null $id = null,
+    string|null $createdAt = null,
+    string|null $updatedAt = null,
+    string $status = 'OPEN',
   ) {
     if ($id == null) {
       $this->id = Uuid::uuid4();
