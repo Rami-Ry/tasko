@@ -6,8 +6,11 @@ use App\Tasko\Repositories\TodoRepository;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$deleteTodo = TodoRepository::deleteTodo(
-  "45d9c047-3cc9-4c48-9b86-0371621a85bd"
-);
-print_r($deleteTodo);
+$todo = TodoRepository::getTodoById("f67566ed-3ff6-46c1-be1e-ad7a5fe7c35f");
+
+if (TaskRepository::deleteTask($todo, "c1ab6b90-bd3a-48b7-a9d3-56fde89c76e8")) {
+  echo "Task was deleted successfuly.";
+} else {
+  echo "Some error was occurred.";
+}
 
