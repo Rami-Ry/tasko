@@ -8,7 +8,6 @@ use App\Tasko\Helpers\DbHelper;
 
 class TodoRepository
 {
-
   /**
    * Fetch all the todos from the database.
    * 
@@ -40,10 +39,11 @@ class TodoRepository
     // Loop through all the todos.
     for ($i = 0; $i < count($todos); $i++) {
       $todo = $todos[$i];
-      if ($todo->id == $id) {
+
+      if ($todo->id == $id)
         return $todo;
-      }
     }
+
     return null;
   }
 
@@ -103,7 +103,6 @@ class TodoRepository
    */
   public static function deleteTodo(string $id): bool
   {
-    $todo = self::getTodoById($id);
     $todoFullPath = "C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\" . $id . ".json";
     unlink($todoFullPath);
     return true;
