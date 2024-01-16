@@ -82,17 +82,33 @@ class TodoRepository
   /**
    * Update a specific todo in the database.
    * 
-   * @param string $id The id of the todo to be updated.
-   * @param array $data The attributes and its values to update.
+   * @param Todo $todo The new version of the todo.
    * 
-   * @return \App\Tasko\Models\Todo
+   * @return bool True if the todo was updated successfuly, false otherwise.
    */
-  // public static function update(string $id, array $data): Todo
-  // {
-  //   // Login to be added here.
+  public static function update(Todo $todo): bool
+  {
+    // Replace file content with new verions of todo object after converting it to JSON.
+    // Construct the full path of the file with its name and extension.
+    $todoFullPath = "C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\" . $todo->id . ".json";
+    // Open the file, with pointer starting from the first line.
+    $todoFile = fopen($todoFullPath, 'r+');
 
-  //   return new Todo();
-  // }
+    // File doesn't exist.
+    if ($todoFile == false)
+      return false;
+
+    // Convert the todo object to a string its format JSON.
+    $todoJson = json_encode($todo);
+    // Empty the file.
+    ftruncate($todoFile, 0);
+    // Replace the content.
+    fwrite($todoFile, $todoJson);
+    // Close the file.
+    fclose($todoFile);
+
+    return true;
+  }
 
   /**
    * Deletes a specific todo in the database.
