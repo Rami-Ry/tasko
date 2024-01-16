@@ -7,4 +7,5 @@ use App\Tasko\Repositories\TodoRepository;
 require __DIR__ . '/../vendor/autoload.php';
 
 $egal = TodoRepository::createTodo("Egal", "Egal desc");
-print_r($egal);
+$egalTask = TaskRepository::createTask($egal, "EgalTask", "EgalDescription", "Egal deadline");
+print_r($egalTask);

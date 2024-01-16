@@ -1,0 +1,18 @@
+{
+  "id": "45d9c047-3cc9-4c48-9b86-0371621a85bd",
+  "createdAt": "2024-01-16 04:56:15 AM",
+  "updatedAt": "2024-01-16 04:56:15 AM",
+  "name": "Egal",
+  "description": "Egal desc",
+  "tasks": [
+    {
+      "id": "fbbd88b1-a28b-4ced-a9f1-c1d317ce1f5d",
+      "name": "EgalTask",
+      "description": "EgalDescription",
+      "createdAt": "2024-01-16 04:56:15 AM",
+      "updatedAt": "2024-01-16 04:56:15 AM",
+      "status": "OPEN",
+      "deadline": "Egal deadline"
+    }
+  ]
+}
