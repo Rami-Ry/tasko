@@ -6,5 +6,5 @@ use App\Tasko\Repositories\TodoRepository;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-
-TodoRepository::createTodo("Egal", "Egal desc", []);
+$egal = TodoRepository::createTodo("Egal", "Egal desc");
+print_r($egal);

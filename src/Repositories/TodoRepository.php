@@ -58,11 +58,10 @@ class TodoRepository
    */
   public static function createTodo(
     string $name,
-    string $description,
-    array $tasks
+    string $description
   ): Todo {
     // Create a new todo object.
-    $todo = new Todo(null, $name, $description, null, null, $tasks);
+    $todo = new Todo($name, $description);
 
     // Construct the full path of the file with its name and extension.
     $todoFullPath = ("C:\\Users\\rima.rayya\\Desktop\\tasko\\src\\db\\todos\\") . $todo->id . ".json";
@@ -76,7 +75,6 @@ class TodoRepository
 
     // Close the file.
     fclose($todoFile);
-
 
     return $todo;
   }

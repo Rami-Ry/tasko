@@ -25,12 +25,12 @@ class Todo
   public array $tasks;
 
   public function __construct(
-    string|null $id,
     string $name,
     string $description,
-    string|null $createdAt,
-    string|null $updatedAt,
-    array $tasks = [],
+    string|null $id = null,
+    string|null $createdAt = null,
+    string|null $updatedAt = null,
+    array|null $tasks = null,
   ) {
     if ($id == null) {
       $this->id = Uuid::uuid4();
@@ -54,7 +54,11 @@ class Todo
       $this->updatedAt = $updatedAt;
     }
 
-    $this->tasks = $tasks;
+    if ($tasks == null) {
+      $this->tasks = [];
+    } else {
+      $this->tasks = $tasks;
+    }
   }
 
   /**
